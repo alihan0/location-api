@@ -42,12 +42,14 @@ Now you can use country-state-city data more effectively in your project.
 /country/all
 ```
  Returns all `Country` data. 
+ 
 ----------------------------
 
 ```
 /country/id/:id
 ```
 Returns the `Country` with the `ID` you submitted.
+
 --------------------------------------------------
 
 ```
