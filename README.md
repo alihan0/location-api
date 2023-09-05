@@ -17,3 +17,8 @@ node app.js
 ```
 
 Now the project will be published on your localhost on port `3000`. If you want to change the port, you can change the `PORT` value in `app.js`.
+
+Note that you need a `database` for the system to work. You can edit your database information through `database.js` in the main directory. If you do not have any data, you can import the sql file in the `database` directory via `phpmyadmin`.
+
+# USAGE
+
