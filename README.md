@@ -36,7 +36,7 @@ Now you can use API service by running routes. This service uses the `GET Method
 
 Now you can use country-state-city data more effectively in your project.
 
-#ROUTES 
+# ROUTES 
 
 ```
 /country/all
@@ -78,4 +78,32 @@ Returns the `State` with the `ID` you submitted.
 ```
 Returns the `State` values based on the `Country ID` you submitted.
 
+-------------------------------------------------------------------
+
+```
+/city/all
+```
+ Returns all `City` data. 
+ 
+----------------------------
+
+```
+/city/id/:id
+```
+Returns the `City` with the `ID` you submitted.
+
 --------------------------------------------------
+
+```
+/city/state/:id
+```
+Returns the `City` values based on the `State ID` you submitted.
+
+----------------------------------------------------------------
+
+```
+/city/country/:id
+```
+Returns the `City` values based on the `Country ID` you submitted.
+
+-------------------------------------------------------------------
