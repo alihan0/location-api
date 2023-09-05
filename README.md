@@ -107,3 +107,9 @@ Returns the `City` values based on the `State ID` you submitted.
 Returns the `City` values based on the `Country ID` you submitted.
 
 -------------------------------------------------------------------
+
+# Thanks
+
+Thank you for your interest in my project and for reading this far. This is my first node.js project so sorry for my mistakes. I prepared this project to use it in the project I developed at my workplace and to relax it, while doing this, I saw it as an opportunity to learn node.js. Please do not hesitate to contribute.
+
+Good Coding
