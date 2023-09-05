@@ -56,3 +56,26 @@ Returns the `Country` with the `ID` you submitted.
 /country/code/:slug
 ```
 Returns the `Country` with the `Country Code` you submitted.
+
+------------------------------------------------------------
+
+```
+/state/all
+```
+ Returns all `State` data. 
+ 
+----------------------------
+
+```
+/state/id/:id
+```
+Returns the `State` with the `ID` you submitted.
+
+--------------------------------------------------
+
+```
+/state/country/:id
+```
+Returns the `State` values based on the `Country ID` you submitted.
+
+--------------------------------------------------
