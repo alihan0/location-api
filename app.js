@@ -3,13 +3,6 @@ const db = require('./database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Örnek Veri
-
-//const countries = db.query('SELECT * FROM countries');
-
-const state = [{id:32, name : "state1", country : 12}];
-const ctires = [{id: 25, name : "City1", state : 32}];
-
 app.use(express.json());
 
 // ALL COUNTRIES
@@ -23,7 +16,6 @@ app.get('/country/all', (req, res) => {
         res.json(results);
     });
 });
-
 
 // COUNTRIES FILTER BY ID
 app.get('/country/id/:id', (req, res) => {
@@ -100,6 +92,18 @@ app.get('/city/all', (req, res) => {
     });
 });
 
+app.get('/city/id/:id', (req, res) => {
+    db.query('SELECT * FROM cities WHERE id = ?', [req.params.id], (err, result) => {
+        if(err){
+            console.log('Veritabanı hatası oluştu: ', err);
+            res.status(500).json({error: "Veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
+});
+
+// CITIES FILTER BY COUNTRY
 app.get('/city/country/:id', (req, res) => {
     db.query('SELECT * FROM cities WHERE country_id = ?', [req.params.id], (err, result) => {
         if(err){
