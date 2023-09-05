@@ -92,6 +92,7 @@ app.get('/city/all', (req, res) => {
     });
 });
 
+// CITIES FILTER BY ID
 app.get('/city/id/:id', (req, res) => {
     db.query('SELECT * FROM cities WHERE id = ?', [req.params.id], (err, result) => {
         if(err){
@@ -109,6 +110,17 @@ app.get('/city/country/:id', (req, res) => {
         if(err){
             console.log("veritabanı hatası oluştu: ", err);
             res.status(500).json({error: "veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
+});
+
+app.get('/city/state/:id', (req, res) => {
+    db.query('SELECT * FROM cities WHERE state_id = ?', [req.params.id], (err, result) => {
+        if(err){
+            console.error("Veritabanı hatası oluştu: ", err);
+            res.status(500).json({error: "Veritabanı hatası!"});
             return;
         }
         res.json(result);
