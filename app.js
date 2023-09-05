@@ -100,6 +100,16 @@ app.get('/city/all', (req, res) => {
     });
 });
 
+app.get('/city/country/:id', (req, res) => {
+    db.query('SELECT * FROM cities WHERE country_id = ?', [req.params.id], (err, result) => {
+        if(err){
+            console.log("veritabanı hatası oluştu: ", err);
+            res.status(500).json({error: "veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Sunucu ${PORT} portunda çalışıyor...`);
