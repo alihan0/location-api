@@ -76,10 +76,23 @@ app.get('/state/id/:id', (req, res) => {
     })
 });
 
+// STATES FILTER BY COUNTRY
 app.get('/state/country/:id', (req,res) => {
     db.query('SELECT * FROM states WHERE country_id = ?', [req.params.id], (err, result) => {
         if(err){
             console.error("Veritabanı hatası oluştu: ", err);
+            res.status(500).json({error: "Veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
+});
+
+// ALL CITIES
+app.get('/city/all', (req, res) => {
+    db.query('SELECT * FROM cities', (err, result) => {
+        if(err){
+            console.log('Veritabanı hatası oluştu:', err);
             res.status(500).json({error: "Veritabanı hatası!"});
             return;
         }
