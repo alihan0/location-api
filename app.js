@@ -76,6 +76,17 @@ app.get('/state/id/:id', (req, res) => {
     })
 });
 
+app.get('/state/country/:id', (req,res) => {
+    db.query('SELECT * FROM states WHERE country_id = ?', [req.params.id], (err, result) => {
+        if(err){
+            console.error("Veritabanı hatası oluştu: ", err);
+            res.status(500).json({error: "Veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
+});
+
 
 app.listen(PORT, () => {
     console.log(`Sunucu ${PORT} portunda çalışıyor...`);
