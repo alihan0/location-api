@@ -23,7 +23,7 @@ app.get('/country/all', (req, res) => {
     });
 });
 
-app.get('/country/:id', (req, res) => {
+app.get('/country/id/:id', (req, res) => {
     const countryID = parseInt(req.params.id);
    
     db.query('SELECT * FROM countries WHERE id = ?', [countryID], (err, results) => {
@@ -35,6 +35,17 @@ app.get('/country/:id', (req, res) => {
         res.json(results);
     })
     
+});
+
+app.get('/country/slug/:slug', (req, res) => {
+    db.query('SELECT * FROM countries WHERE iso2 = ?', [req.params.slug], (err, result) => {
+        if(err){
+            console.error('Veritabanı hatası oluştu: ', err);
+            res.status(500).json({error: "Veritabanı hatası!"});
+            return;
+        }
+        res.json(result);
+    });
 });
 
 app.listen(PORT, () => {
