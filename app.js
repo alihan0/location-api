@@ -116,6 +116,7 @@ app.get('/city/country/:id', (req, res) => {
     });
 });
 
+// CITIES FILTER BY STATE
 app.get('/city/state/:id', (req, res) => {
     db.query('SELECT * FROM cities WHERE state_id = ?', [req.params.id], (err, result) => {
         if(err){
